@@ -108,7 +108,7 @@ class MainActivity : ComponentActivity() {
                 Row(verticalAlignment = Alignment.CenterVertically) { Icon(Icons.Default.OpenInNew, null, tint = MaterialTheme.colorScheme.primary, modifier = Modifier.size(32.dp)); Spacer(Modifier.width(12.dp)); Text("FreeFloat Workspace", style = MaterialTheme.typography.headlineSmall, fontWeight = FontWeight.Bold) }
                 Text("A private floating workspace for your own panels", style = MaterialTheme.typography.titleMedium)
                 Text("This app uses Display over other apps to keep your workspace available above other apps. It does not embed, read, or control third-party apps.")
-                Text("A persistent notification is shown while the workspace service is active.", style = MaterialTheme.typography.bodySmall)
+                Text("After you start it, the smart sidebar remains available over other apps even when this screen is closed. A persistent notification is shown while it is active.", style = MaterialTheme.typography.bodySmall)
                 Button(onClick = { context.startActivity(Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:${context.packageName}"))) }, modifier = Modifier.fillMaxWidth()) { Icon(Icons.Default.Layers, null); Spacer(Modifier.width(8.dp)); Text("Grant overlay permission") }
                 OutlinedButton(onClick = { vm.dismissOnboarding(); if (Settings.canDrawOverlays(context)) context.startForegroundService(Intent(context, FloatingWindowService::class.java)) }, modifier = Modifier.fillMaxWidth()) { Text("Start workspace") }
                 TextButton(onClick = vm::dismissOnboarding, modifier = Modifier.align(Alignment.End)) { Text("Explore without overlay") }
